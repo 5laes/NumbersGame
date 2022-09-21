@@ -10,6 +10,7 @@ namespace NumbersGame
             Random random = new Random();
             int hiddenNumber;
 
+            //detta är em while loop som gör att "menyn" inte stängs ner
             while (menu == true)
             {
                 Console.Clear();
