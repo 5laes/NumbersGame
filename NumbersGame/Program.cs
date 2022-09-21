@@ -13,6 +13,7 @@ namespace NumbersGame
             while (menu == true)
             {
                 Console.Clear();
+                Console.WriteLine("LOOOOOOOOOOOL");
                 Console.Write("\n\tVälkommen till Gissa Numret spelet!" +
                     "\n\tVälj svårighetsgrad!" +
                     "\n\t[1] Lätt   (Gissa mellan 1-20, 10 försök)" +
