@@ -6,11 +6,13 @@ namespace NumbersGame
     {        
         static void Main(string[] args)
         {
+            //Claes Lundin SUT22
+
             bool menu = true;
             Random random = new Random();
             int hiddenNumber;
 
-            //detta är em while loop som gör att "menyn" inte stängs ner
+            //detta är en while loop som gör att "menyn" inte stängs ner
             while (menu == true)
             {
                 Console.Clear();
@@ -66,24 +68,30 @@ namespace NumbersGame
             }
         }
 
+        //Metod som är själva spelet som tar emot det gömda numret och antal gissningar man har
         public static void GuessGame(int hiddenNumber, int guesses)
         {
+            //En int som säger avståndet till om man är nära eller inte
             double closeGuessD = Math.Ceiling(hiddenNumber * 0.2);
             int closeGuess = Convert.ToInt32(closeGuessD);
+
+            //Loop som räknar ner antalet försök man har kvar
             for (int guessesLeft = guesses; guessesLeft > 0; guessesLeft--)
             {
                 Console.Clear();
-                Console.Write(hiddenNumber + " " + closeGuess);
+                //Console.Write($"Gömt nummer är {hiddenNumber}. Nära gisning är {closeGuess}");
                 Console.Write("\n\tVad gissar du på?" +
                     "\n\t: ");
                 int.TryParse(Console.ReadLine(), out int guess);
 
+                //om gisningen är rätt
                 if (CheckGuess(hiddenNumber, guess) == true)
                 {
                     Console.Write("\n\tGrattis du gissade rätt!");
                     Console.ReadLine();
                     guessesLeft = 0;
                 }
+                //annar om gisningen är fel
                 else
                 {
                     Console.Write("\n\t" + GuessAnswer(hiddenNumber, guess) +
@@ -101,6 +109,7 @@ namespace NumbersGame
             }
         }
 
+        //Metod som kollar om det man gissar är rätt eller inte
         public static bool CheckGuess(int hiddenNumber, int guess)
         {
             if (guess == hiddenNumber)
@@ -110,6 +119,7 @@ namespace NumbersGame
             return false;
         }
 
+        //Metod som retunerar random string om man gissar lågt eller högt
         public static string GuessAnswer(int hiddenNumber, int guess)
         {
             Random random = new Random();
